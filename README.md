@@ -2,51 +2,68 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 <!-- -->
+
 <!-- FILL OUT OPTIONS !!! -->
+
 <!-- -->
+
 <!-- -->
+
 <!-- -->
-Scaffolding and Skeletton Framework
-===================================
+
+# Solid Package Installation for Legacy R Versions
 
 **Status**
 
-<a href="https://travis-ci.org/petermeissner/scaffold"><img src="https://api.travis-ci.org/petermeissner/scaffold.svg?branch=master"><a/> [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/petermeissner/scaffold?branch=master&svg=true)](https://ci.appveyor.com/project/petermeissner/scaffold) <a href="https://codecov.io/gh/petermeissner/scaffold"><img src="https://codecov.io/gh/petermeissner/scaffold/branch/master/graph/badge.svg" alt="Codecov" /></a> <a href="https://cran.r-project.org/package=scaffold"> <img src="http://www.r-pkg.org/badges/version/scaffold"> </a> <img src="http://cranlogs.r-pkg.org/badges/grand-total/scaffold"> <img src="http://cranlogs.r-pkg.org/badges/scaffold">
+<a href="https://travis-ci.org/petermeissner/wayback"><img src="https://api.travis-ci.org/petermeissner/wayback.svg?branch=master"><a/>
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/petermeissner/wayback?branch=master&svg=true)](https://ci.appveyor.com/project/petermeissner/wayback)
+<a href="https://codecov.io/gh/petermeissner/wayback"><img src="https://codecov.io/gh/petermeissner/wayback/branch/master/graph/badge.svg" alt="Codecov" /></a>
+<!--<a href="https://cran.r-project.org/package=wayback">
+<img src="https://www.r-pkg.org/badges/version/wayback">
+</a>
+<img src="https://cranlogs.r-pkg.org/badges/grand-total/wayback">
+<img src="https://cranlogs.r-pkg.org/badges/wayback">
+-->
 
-*lines of R code:* 3, *lines of test code:* 0
+*lines of R code:* 94, *lines of test code:* 0
 
 **Version**
 
-0.1.0 ( 2020-01-31 12:11:14 )
+0.1.0 ( 2020-01-31 22:00:44 )
 
 **Description**
 
-Having file and folder structures as templates for projects, packages, Shiny apps, ... is a common pattern found e.g. among programmers, statisticianc, data scientists, and practitioners. `{scaffold}` is a framework to easily build up file and folder skelletons and fill out templates on the go. By providing and easy and consistent way to copy files and folders from template folders and files in the local files system or installed in a package. Furthermore `{scaffold}` allows for a templating functions that can transform general templating files into specific - filled out - files and folders.
+Make sure packages are available at runtime without any setup. Package
+installation, reproducability and exchanging code can be frunstrating
+especially id code is used on older R versions. The `wayback` package
+aims to make this process as painless and robust as possible.
 
 **License**
 
-MIT + file LICENSE <br>Peter Meissner \[aut, cre\] (<https://orcid.org/0000-0001-6501-1841>)
+GPL-3 <br>Peter Meissner \[aut, cre\], virtual7
+\[cph\]
 
 **Citation**
 
 ``` r
-citation("scaffold")
+citation("wayback")
 ```
 
 ``` r
-Meissner P (2019). scaffold: Scaffolding and Skeletton Framework. R package version 0.1.0.
+Meissner P (2020). wayback: Solid Package Installation for Legacy R Versions. R package version 0.1.0.
 ```
 
 **BibTex for citing**
 
 ``` r
-toBibtex(citation("scaffold"))
+toBibtex(citation("wayback"))
 ```
 
     @Manual{,
-      title = {scaffold: Scaffolding and Skeletton Framework},
+      title = {wayback: Solid Package Installation for Legacy R Versions},
       author = {Peter Meissner},
-      year = {2019},
+      year = {2020},
       note = {R package version 0.1.0},
     }
 
@@ -55,15 +72,40 @@ toBibtex(citation("scaffold"))
 Stable version from CRAN:
 
 ``` r
-install.packages("scaffold")
+install.packages("wayback")
 ```
 
 <!-- Latest development version from Github: -->
+
 <!-- ```{r, eval=FALSE} -->
+
 <!-- devtools::install_github("user_name/repo_name") -->
+
 <!-- ``` -->
+
 **Usage**
 
-*starting up ...*
+*starting up …*
 
-    library("scaffold")
+    library("wayback")
+
+``` r
+suppressPackageStartupMessages(
+  wb_require(pkg = "stringr", date = "2017-01-01", lib_path = "./r_package_library")
+)
+```
+
+    ## install stringr
+
+    ## Installing package into '/home/peter/wayback/r_package_library'
+    ## (as 'lib' is unspecified)
+
+    ## loading stringr
+
+``` r
+info <- packageDescription("dplyr", lib.loc = "./r_package_library")
+
+info$Packaged
+```
+
+    ## [1] "2016-06-23 21:54:41 UTC; hadley"

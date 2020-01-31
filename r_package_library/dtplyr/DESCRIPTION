@@ -1,0 +1,24 @@
+Package: dtplyr
+Title: Data Table Back-End for 'dplyr'
+Version: 0.0.1
+Authors@R: c(
+    person("Hadley", "Wickham", , "hadley@rstudio.com", role = c("aut", "cre")),
+    person("RStudio", role = "cph")
+  )
+Description: This implements the data table back-end for 'dplyr' so that you
+    can seamlessly use data table and 'dplyr' together.
+License: GPL (>= 2)
+Imports: dplyr (>= 0.5.0), data.table, lazyeval
+Suggests: Lahman, nycflights13, testthat, covr
+LazyData: true
+RoxygenNote: 5.0.1
+URL: https://github.com/hadley/dtplyr
+BugReports: https://github.com/hadley/dtplyr/issues
+NeedsCompilation: no
+Packaged: 2016-06-26 15:50:06 UTC; hadley
+Author: Hadley Wickham [aut, cre],
+  RStudio [cph]
+Maintainer: Hadley Wickham <hadley@rstudio.com>
+Repository: CRAN
+Date/Publication: 2016-06-27 06:59:59
+Built: R 3.4.4; ; 2020-01-31 22:00:43 UTC; unix

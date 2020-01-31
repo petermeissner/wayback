@@ -1,11 +1,29 @@
 Package: wayback
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Solid Package Installation for Legacy R Versions
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Date: 2020-01-31
+Authors@R: c(
+    person(
+        given  = "Peter", 
+        family = "Meissner", 
+        email  = "retep.meissner@gmail.com", 
+        role   = c("aut", "cre")
+     ),
+     person(
+        family = "virtual7",
+        email  = "info@virtual7.de",
+        role   = c("cph")
+     )
+    )
+Maintainer: Peter Meißner <retep.meissner@gmeil.com>
+Description: Make sure packages are available at runtime without any setup. 
+    Package installation, reproducability and exchanging code can be 
+    frunstrating especially id code is used on older R versions. The `wayback`
+    package aims to make this process as painless and robust as possible. 
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 7.0.2
+Roxygen: list(markdown = TRUE)
+Imports: checkpoint

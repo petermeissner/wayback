@@ -1,0 +1,12 @@
+.datatable.aware	tbl_dt
+anti_join.data.table	join.tbl_dt
+full_join.data.table	join.tbl_dt
+grouped_dt	grouped_dt
+inner_join.data.table	join.tbl_dt
+is.grouped_dt	grouped_dt
+join.tbl_dt	join.tbl_dt
+left_join.data.table	join.tbl_dt
+right_join.data.table	join.tbl_dt
+semi_join.data.table	join.tbl_dt
+src_dt	src_local
+tbl_dt	tbl_dt
