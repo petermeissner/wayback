@@ -31,6 +31,8 @@
 #' @param date_shift `integer` - number of days to add to date
 #' @param lib_path `character` - lib_path to use first
 #' @param binary_path `character` - path to look for binary packages to install
+#' @param dependencies `character vector` - specifies which types of dependencies
+#'   should be installed also
 #'
 #' @export
 #'
