@@ -25,6 +25,9 @@ specified in \code{sessionInfo()$R.version$version.string}}
 \item{lib_path}{\code{character} - lib_path to use first}
 
 \item{binary_path}{\code{character} - path to look for binary packages to install}
+
+\item{dependencies}{\verb{character vector} - specifies which types of dependencies
+should be installed also}
 }
 \description{
 This function will make sure a specified package is available within the
