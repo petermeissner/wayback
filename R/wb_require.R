@@ -58,52 +58,25 @@
 wb_require <-
   function (
     pkg,
-    date         = options("wb_require_date"),
-    date_shift   = options("wb_require_shift_date"),
-    lib_path     = options("wb_require_lib_path"),
-    binary_path  = options("wb_require_binary_path"),
-    dependencies = getOption("wb_require_dependencies", c("Depends", "Imports", "LinkingTo"))
+    date         = getOption("wb_require_date", NULL),
+    date_shift   = getOption("wb_require_shift_date", NULL),
+    library_path = getOption("wb_require_lib_path", NULL),
+    package_path = getOption("wb_require_binary_path", NULL),
+    dependencies = getOption("wb_require_dependencies", c("Depends", "Imports", "LinkingTo")),
+    url_fun      = getOption("wb_require_url", wb_repo_url)
   ) {
 
     # process options
-    date        = unlist(date)
-    lib_path    = unlist(lib_path)
-    binary_path = unlist(binary_path)
-    date_shift  = unlist(date_shift)
+    date         = unlist(date)
+    lib_path     = unlist(library_path)
+    package_path = unlist(package_path)
+    date_shift   = unlist(date_shift)
 
-    # set lib path?
-    if ( !is.null(lib_path) ){
 
-      # check if lib path exists, if not create it.
-      if ( !dir.exists(lib_path) ){
-        dir.create(lib_path)
-      }
-
-      # ensure function restores settings on exit
-      lib_path_old <- .libPaths()
-      on.exit({
-        .libPaths("")
-        .libPaths(lib_path_old)
-      })
-
-      # set new lib_path
-      .libPaths(lib_path)
-
-      # get installed packages
-      installed_packages <-
-        rownames(
-          utils::installed.packages(
-            lib.loc = lib_path
-          )
-        )
-    } else {
-
-      # get installed packages
-      installed_packages <-
-        rownames(utils::installed.packages())
+    # check if library_path exists, if not create it.
+    if ( !is.null(library_path) && !dir.exists(library_path) ) {
+      dir.create(library_path)
     }
-
-
 
 
     # process appropriate date to use for snapshot
@@ -147,56 +120,55 @@ wb_require <-
     }
 
 
-    # available checkpoints
-    checkpoint_dates <- checkpoint::getValidSnapshots()
+    # loaded packages
+    si <- sessionInfo()
+    packages_loaded <-
+      c(
+        names(si$otherPkgs),
+        names(si$basePkgs),
+        names(si$loadedOnly)
+      )
 
-    # determine nearest available date
-    min_date <- min(checkpoint_dates[checkpoint_dates > date])
+    if ( !(pkg %in% packages_loaded) ){
+      tryCatch(
 
-    repo_url <- paste0(checkpoint::mranUrl(), min_date)
+        expr  =
+          {
+            library(
+              pkg,
+              character.only = TRUE,
+              lib.loc        = library_path
+            )
+            message("loaded ", pkg)
+          },
 
+        error =
+          function(e){
+            message("install ", pkg)
 
+            # get repo url to use
+            if ( is.null(package_path) ){
+              repo_url <- url_fun(date)
+            }
 
-    # check if package should be installed and loaded or simply loaded
-    if ( pkg %in% installed_packages ){
+            # install package
+            wb_pkg_install(
+              pkg          = pkg,
+              repo_url     = repo_url,
+              package_path = package_path,
+              library_path = library_path,
+              dependencies = dependencies
+            )
 
-      message("loading ", pkg)
-      library(pkg, character.only = TRUE)
-
-    } else {
-
-      message("install ", pkg)
-
-      # try to install from binary path?
-      if ( is.null(binary_path) ) {
-
-        utils::install.packages(pkg, repos = repo_url, dependencies = dependencies)
-
-      } else {
-        bin_packages <-
-          list.files(
-            path       = binary_path,
-            pattern    = paste0(pkg, "_[0-9.]+\\.zip$"),
-            full.names = TRUE
-          )
-
-        if ( length(bin_packages) > 0  ){
-          utils::install.packages(
-            pkgs  = utils::tail(sort( bin_packages ), 1),
-            repos = NULL
-          )
-        } else {
-          utils::install.packages(
-            pkgs         = pkg,
-            repos        = repo_url,
-            dependencies = dependencies
-          )
-        }
-      }
-
-
-      message("loading ", pkg)
-      library(pkg, character.only = TRUE)
-
+            # load package
+            library(
+              pkg,
+              character.only = TRUE,
+              lib.loc        = library_path
+            )
+            message("loaded ", pkg)
+          }
+      )
     }
+
   }

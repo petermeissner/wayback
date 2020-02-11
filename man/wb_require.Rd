@@ -6,12 +6,13 @@
 \usage{
 wb_require(
   pkg,
-  date = options("wb_require_date"),
-  date_shift = options("wb_require_shift_date"),
-  lib_path = options("wb_require_lib_path"),
-  binary_path = options("wb_require_binary_path"),
+  date = getOption("wb_require_date", NULL),
+  date_shift = getOption("wb_require_shift_date", NULL),
+  library_path = getOption("wb_require_lib_path", NULL),
+  package_path = getOption("wb_require_binary_path", NULL),
   dependencies = getOption("wb_require_dependencies", c("Depends", "Imports",
-    "LinkingTo"))
+    "LinkingTo")),
+  url_fun = getOption("wb_require_url", wb_repo_url)
 )
 }
 \arguments{
@@ -22,12 +23,12 @@ specified in \code{sessionInfo()$R.version$version.string}}
 
 \item{date_shift}{\code{integer} - number of days to add to date}
 
+\item{dependencies}{\verb{character vector} - specifies which types of dependencies
+should be installed also}
+
 \item{lib_path}{\code{character} - lib_path to use first}
 
 \item{binary_path}{\code{character} - path to look for binary packages to install}
-
-\item{dependencies}{\verb{character vector} - specifies which types of dependencies
-should be installed also}
 }
 \description{
 This function will make sure a specified package is available within the
