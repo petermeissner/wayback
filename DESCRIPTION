@@ -19,8 +19,12 @@ Authors@R: c(
 Maintainer: Peter Meißner <retep.meissner@gmeil.com>
 Description: Make sure packages are available at runtime without any setup. 
     Package installation, reproducability and exchanging code can be 
-    frunstrating especially id code is used on older R versions. The `wayback`
-    package aims to make this process as painless and robust as possible. 
+    frunstrating especially if code is used on older R versions. 
+    Often it is hard puzzle out which package versions are able to work 
+    together after some years have passed and packages evolved further and 
+    further. The `wayback` package aims to make this process as painless 
+    and robust as possible by using `MRAN`'s `CRAN` snapshots to build local
+    package libraries from way back. 
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
