@@ -29,15 +29,16 @@
 #'     specified in \code{sessionInfo()$R.version$version.string}
 #'
 #' @param date_shift `integer` - number of days to add to date
-#' @param lib_path `character` - lib_path to use first
-#' @param binary_path `character` - path to look for binary packages to install
+#' @param library_path `character` - lib_path to use first
+#' @param package_path `character` - path to look for binary packages to install
 #' @param dependencies `character vector` - specifies which types of dependencies
 #'   should be installed also
+#' @param url_fun function transforming a date into a repository url
 #'
 #' @export
 #'
 #' @import checkpoint
-#'
+#' @import utils
 #'
 #' @examples
 #'
@@ -61,7 +62,7 @@ wb_require <-
     date         = getOption("wb_require_date", NULL),
     date_shift   = getOption("wb_require_shift_date", NULL),
     library_path = getOption("wb_require_lib_path", NULL),
-    package_path = getOption("wb_require_binary_path", NULL),
+    package_path = getOption("wb_require_package_path", NULL),
     dependencies = getOption("wb_require_dependencies", c("Depends", "Imports", "LinkingTo")),
     url_fun      = getOption("wb_require_url", wb_repo_url)
   ) {
@@ -121,7 +122,7 @@ wb_require <-
 
 
     # loaded packages
-    si <- sessionInfo()
+    si <- utils::sessionInfo()
     packages_loaded <-
       c(
         names(si$otherPkgs),

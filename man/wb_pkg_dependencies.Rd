@@ -11,8 +11,12 @@ wb_pkg_dependencies(
 )
 }
 \arguments{
-\item{dep_types}{}
+\item{pkg}{package to get dependencies from}
+
+\item{library_path}{library path to look for package}
+
+\item{dep_types}{character vector of dependency types to retrieve}
 }
 \description{
-wb_pkg_dependencies
+Function to retrieve pacakge dependencies.
 }

@@ -4,18 +4,20 @@
 \alias{wb_pkg_install}
 \title{wb_pkg_install}
 \usage{
-wb_pkg_install(
-  pkg,
-  repo_url,
-  library_path,
-  package_path,
-  dependencies,
-  tasks = NULL
-)
+wb_pkg_install(pkg, repo_url, library_path, package_path, dependencies)
 }
 \arguments{
-\item{dependencies}{}
+\item{pkg}{\code{character} - package name specified as cha}
+
+\item{repo_url}{url of repository to get packages from}
+
+\item{library_path}{\code{character} - lib_path to use first}
+
+\item{package_path}{\code{character} - path to look for binary packages to install}
+
+\item{dependencies}{\verb{character vector} - specifies which types of dependencies
+should be installed also}
 }
 \description{
-wb_pkg_install
+Installs packages and its dependencies
 }

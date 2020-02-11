@@ -1,9 +1,11 @@
 
 #' wb_pkg_dependencies
 #'
-#' @param pkg
-#' @param library_path
-#' @param dep_types
+#' Function to retrieve pacakge dependencies.
+#'
+#' @param pkg package to get dependencies from
+#' @param library_path library path to look for package
+#' @param dep_types character vector of dependency types to retrieve
 #'
 #' @export
 #'

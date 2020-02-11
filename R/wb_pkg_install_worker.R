@@ -1,14 +1,10 @@
 #' wb_pkg_install_worker
 #'
-#' @param pkg pkg to install
-#' @param repo_url repo url to install from
-#' @param package_path
-#' @param dependencies
+#' @inheritParams wb_require
+#' @param repo_url url of repository to get packages from
 #'
-#' @return
 #' @export
 #'
-#' @examples
 #'
 wb_pkg_install_worker <-
   function (
@@ -38,7 +34,7 @@ wb_pkg_install_worker <-
 
       bin_packages <-
         list.files(
-          path       = binary_path,
+          path       = package_path,
           pattern    = paste0(pkg, "_[0-9.]+\\.zip$"),
           full.names = TRUE
         )

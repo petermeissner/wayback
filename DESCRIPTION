@@ -1,8 +1,8 @@
 Package: wayback
 Type: Package
 Title: Solid Package Installation for Legacy R Versions
-Version: 0.1.0
-Date: 2020-01-31
+Version: 0.2.0
+Date: 2020-02-11
 Authors@R: c(
     person(
         given  = "Peter", 

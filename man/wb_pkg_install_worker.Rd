@@ -7,18 +7,17 @@
 wb_pkg_install_worker(pkg, repo_url, package_path, library_path, dependencies)
 }
 \arguments{
-\item{pkg}{pkg to install}
+\item{pkg}{\code{character} - package name specified as cha}
 
-\item{repo_url}{repo url to install from}
+\item{repo_url}{url of repository to get packages from}
 
-\item{dependencies}{}
-}
-\value{
+\item{package_path}{\code{character} - path to look for binary packages to install}
 
+\item{library_path}{\code{character} - lib_path to use first}
+
+\item{dependencies}{\verb{character vector} - specifies which types of dependencies
+should be installed also}
 }
 \description{
 wb_pkg_install_worker
-}
-\examples{
-
 }

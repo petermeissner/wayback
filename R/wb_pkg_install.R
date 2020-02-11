@@ -1,9 +1,9 @@
 #' wb_pkg_install
 #'
-#' @param pkg
-#' @param repo_url
-#' @param binary_path
-#' @param dependencies
+#' Installs packages and its dependencies
+#'
+#' @inheritParams wb_require
+#' @param repo_url url of repository to get packages from
 #'
 #' @export
 #'
@@ -13,18 +13,13 @@ wb_pkg_install <-
     repo_url,
     library_path,
     package_path,
-    dependencies,
-    tasks = NULL
+    dependencies
   ) {
 
 
     # task queue - create or re-use
-    if ( is.null(tasks) ) {
-      task_list <- wb_task()
-      task_list$add_task(pkg)
-    } else {
-      task_list <- tasks
-    }
+    task_list <- wb_task()
+    task_list$add_task(pkg)
 
     # install packages while there are packages to install
     while ( !is.null(tsk <- task_list$get_task()) ) {

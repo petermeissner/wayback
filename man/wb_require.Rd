@@ -9,7 +9,7 @@ wb_require(
   date = getOption("wb_require_date", NULL),
   date_shift = getOption("wb_require_shift_date", NULL),
   library_path = getOption("wb_require_lib_path", NULL),
-  package_path = getOption("wb_require_binary_path", NULL),
+  package_path = getOption("wb_require_package_path", NULL),
   dependencies = getOption("wb_require_dependencies", c("Depends", "Imports",
     "LinkingTo")),
   url_fun = getOption("wb_require_url", wb_repo_url)
@@ -23,12 +23,14 @@ specified in \code{sessionInfo()$R.version$version.string}}
 
 \item{date_shift}{\code{integer} - number of days to add to date}
 
+\item{library_path}{\code{character} - lib_path to use first}
+
+\item{package_path}{\code{character} - path to look for binary packages to install}
+
 \item{dependencies}{\verb{character vector} - specifies which types of dependencies
 should be installed also}
 
-\item{lib_path}{\code{character} - lib_path to use first}
-
-\item{binary_path}{\code{character} - path to look for binary packages to install}
+\item{url_fun}{function transforming a date into a repository url}
 }
 \description{
 This function will make sure a specified package is available within the
