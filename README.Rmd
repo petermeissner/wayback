@@ -134,11 +134,11 @@ cat("\n```\n")
 ```
 
 
-**BibTex for citing**
+**BibTeX for citing**
 
 ```{r, results='asis', echo=FALSE}
 cat("```r\n")
-cat("toBibtex(citation(\"",package_name,"\"))", sep = "")
+cat("BibTeX(citation(\"",package_name,"\"))", sep = "")
 cat("\n```\n")
 ```
 
@@ -169,31 +169,66 @@ cat("\n```\n")
 
 
 
-**Usage**
-
-*starting up ...*
-```{r, results='asis', echo=FALSE}
-cat("```\n")
-cat("library(\"",package_name,"\")", sep = "")
-cat("\n```\n")
-```
+## Package Usage
 
 
-```{r, include=FALSE}
+```{r}
 library(wayback)
 ```
 
 
+The main function of the package is `wb_require()`.  Once `{wayback}` is installed this function 
+allows to have required packages loaded from a library specified. In addition `wb_require()` will
+install packages that are not present but required. 
+
+The real core strength and purpose of the package is to install packages and dependencies from 
+a specific point in time. This is provided by the `date` parameter allowing to go back in time - 
+especially to a point in time where known to have consistent states of packages and dependencies 
+for a given version of R. 
+
 ```{r}
 suppressPackageStartupMessages(
-  wb_require(pkg = "stringr", date = "2017-01-01", lib_path = "./r_package_library")
+  wb_require(
+    pkg          = "glue", 
+    date         = Sys.Date(),
+    library_path = "./r_package_library"
+  )
 )
 ```
 
 
 ```{r}
-info <- packageDescription("dplyr", lib.loc = "./r_package_library")
+info <- packageDescription("glue", lib.loc = "./r_package_library")
 
 info$Packaged
 ```
+
+
+
+## Package Maxims and Trade Offs
+
+- given `{wayback}` is installed everything else should just work
+- `{wayback}` will not change how your session works - e.g. normal `install.packages()` will work the same with and without `{wayback}`
+- given that no date is provided the parameter `date` will default to 60 days after the currently used R version was used
+- `{wayback}` will not install anything if the required package is already found in the current path 
+- if however a explicit library path is provided - best practice - than `{wayback}` will assume that all packages and all dependencies - except base R packages - should come from this source
+- dependencies are important: `{wayback}` will forcefully install dependencies
+- providing a function that does package loading and installation is less 'save' than the standard usage of `library()` on the other hand this is common practice and `{wayback}` scratches this itch in hope to provide a solid, effective and robust solution to the problem
+- behaviour should - by default - stem from function parameters only 
+- to minimize re-writing function parameters over and over again all function parameters can be set via options
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

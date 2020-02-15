@@ -98,9 +98,9 @@ wb_require <-
       date <- as.Date(r_version_date_string)
 
       if ( is.null(date_shift) ){
-        date <- date + 60
+        date <- min(date + 60, Sys.Date() - 5)
       } else {
-        date <- date + date_shift
+        date <- min(date + date_shift, Sys.Date() - 5)
       }
 
       message(
@@ -114,9 +114,9 @@ wb_require <-
       date <- as.Date(date)
 
       if ( is.null(date_shift) ){
-        date <- date + 0
+        date <- min(date + 0, Sys.Date() - 5)
       } else {
-        date <- date + date_shift
+        date <- min(date + date_shift, Sys.Date() - 5)
       }
     }
 

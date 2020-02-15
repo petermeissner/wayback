@@ -25,8 +25,6 @@ wb_pkg_install <-
     while ( !is.null(tsk <- task_list$get_task()) ) {
       print(tsk$package_name)
 
-      browser()
-
       wb_pkg_install_worker(
         pkg          = tsk$package_name,
         repo_url     = repo_url,
