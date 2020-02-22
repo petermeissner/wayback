@@ -30,7 +30,7 @@ status](https://ci.appveyor.com/api/projects/status/github/petermeissner/wayback
 
 **Version**
 
-0.2.1 ( 2020-02-15 22:30:21 )
+0.2.1 ( 2020-02-15 22:30:48 )
 
 **Description**
 
@@ -45,8 +45,7 @@ way back.
 
 **License**
 
-GPL-3 <br>Peter Meissner \[aut, cre\], virtual7
-\[cph\]
+GPL-3 <br>Peter Meissner \[aut, cre\], virtual7 \[cph\]
 
 **Citation**
 
@@ -114,16 +113,6 @@ suppressPackageStartupMessages(
 )
 ```
 
-    ## install glue
-
-    ## [1] "glue"
-    ## package 'glue' successfully unpacked and MD5 sums checked
-    ## 
-    ## The downloaded binary packages are in
-    ##  C:\Users\peter.meissner\AppData\Local\Temp\Rtmp6dGVZ4\downloaded_packages
-
-    ## Warning: package 'glue' was built under R version 3.6.2
-
     ## loaded glue
 
 ``` r
@@ -140,7 +129,7 @@ info$Packaged
   - `{wayback}` will not change how your session works - e.g. normal
     `install.packages()` will work the same with and without `{wayback}`
   - given that no date is provided the parameter `date` will default to
-    60 days after the currently used R version was used
+    60 days after the currently used R version’s publication date
   - `{wayback}` will not install anything if the required package is
     already found in the current path
   - if however a explicit library path is provided - best practice -

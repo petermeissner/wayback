@@ -204,12 +204,17 @@ info$Packaged
 ```
 
 
+## Package Use Cases and Scope
+
+
+
+
 
 ## Package Maxims and Trade Offs
 
 - given `{wayback}` is installed everything else should just work
 - `{wayback}` will not change how your session works - e.g. normal `install.packages()` will work the same with and without `{wayback}`
-- given that no date is provided the parameter `date` will default to 60 days after the currently used R version was used
+- given that no date is provided the parameter `date` will default to 60 days after the currently used R version's publication date
 - `{wayback}` will not install anything if the required package is already found in the current path 
 - if however a explicit library path is provided - best practice - than `{wayback}` will assume that all packages and all dependencies - except base R packages - should come from this source
 - dependencies are important: `{wayback}` will forcefully install dependencies
@@ -218,7 +223,7 @@ info$Packaged
 - to minimize re-writing function parameters over and over again all function parameters can be set via options
 
 
-
+## Other Packages and Frameworks
 
 
 
