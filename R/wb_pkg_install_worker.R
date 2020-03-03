@@ -3,7 +3,6 @@
 #' @inheritParams wb_require
 #' @param repo_url url of repository to get packages from
 #'
-#' @export
 #'
 #'
 wb_pkg_install_worker <-

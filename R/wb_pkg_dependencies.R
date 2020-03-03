@@ -7,7 +7,6 @@
 #' @param library_path library path to look for package
 #' @param dep_types character vector of dependency types to retrieve
 #'
-#' @export
 #'
 wb_pkg_dependencies <-
   function(

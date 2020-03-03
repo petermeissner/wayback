@@ -1,7 +1,6 @@
 #' wb_pkg_base_packages
 #'
 #' @return character vector with packages already part of the R installation
-#' @export
 #'
 wb_pkg_base_packages <-
   function(){

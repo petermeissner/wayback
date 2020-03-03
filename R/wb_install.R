@@ -7,7 +7,7 @@
 #'
 #' @export
 #'
-wb_pkg_install <-
+wb_install <-
   function(
     pkg,
     repo_url,
