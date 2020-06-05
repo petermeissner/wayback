@@ -153,7 +153,7 @@ wb_require <-
             }
 
             # install package
-            wb_pkg_install(
+            wb_install(
               pkg          = pkg,
               repo_url     = repo_url,
               package_path = package_path,
