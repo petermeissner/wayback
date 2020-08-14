@@ -6,3 +6,4 @@
 ^README\.Rmd$
 ^r_package_library$
 ^lib_path$
+^library$

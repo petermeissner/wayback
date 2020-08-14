@@ -11,7 +11,7 @@
 
 <!-- -->
 
-# Solid Package Installation for Legacy R Versions
+# Rock Solid Package Installation for Legacy R Versions
 
 **Status**
 
@@ -26,26 +26,27 @@ status](https://ci.appveyor.com/api/projects/status/github/petermeissner/wayback
 <img src="https://cranlogs.r-pkg.org/badges/wayback">
 -->
 
-*lines of R code:* 291, *lines of test code:* 0
+*lines of R code:* 299, *lines of test code:* 0
 
 **Version**
 
-0.2.1 ( 2020-02-15 22:30:48 )
+0.2.3 ( 2020-08-14 11:20:17 )
 
 **Description**
 
 Make sure packages are available at runtime without any setup. Package
 installation, reproducability and exchanging code can be frunstrating
-especially if code is used on older R versions. Often it is hard puzzle
-out which package versions are able to work together after some years
-have passed and packages evolved further and further. The `wayback`
-package aims to make this process as painless and robust as possible by
-using `MRAN`’s `CRAN` snapshots to build local package libraries from
-way back.
+especially if code is used on older R versions. Often it is hard to
+puzzle out which package versions are able to work together after some
+years have passed and packages evolved further and further. The
+‘wayback’ package aims to make this process as painless and robust
+as possible by using ‘MRAN’s ’CRAN’ snapshots to build local package
+libraries from way back.
 
 **License**
 
-GPL-3 <br>Peter Meissner \[aut, cre\], virtual7 \[cph\]
+GPL-3 <br>Peter Meissner \[aut, cre\], virtual7
+\[cph\]
 
 **Citation**
 
@@ -54,7 +55,7 @@ citation("wayback")
 ```
 
 ``` r
-Meissner P (2020). wayback: Solid Package Installation for Legacy R Versions. R package version 0.2.1.
+Meissner P (2020). wayback: Rock Solid Package Installation for Legacy R Versions. R package version 0.2.3.
 ```
 
 **BibTeX for citing**
@@ -64,10 +65,10 @@ BibTeX(citation("wayback"))
 ```
 
     @Manual{,
-      title = {wayback: Solid Package Installation for Legacy R Versions},
+      title = {wayback: Rock Solid Package Installation for Legacy R Versions},
       author = {Peter Meissner},
       year = {2020},
-      note = {R package version 0.2.1},
+      note = {R package version 0.2.3},
     }
 
 **Installation**
@@ -113,6 +114,16 @@ suppressPackageStartupMessages(
 )
 ```
 
+    ## install glue
+
+    ## [1] "glue"
+    ## package 'glue' successfully unpacked and MD5 sums checked
+    ## 
+    ## The downloaded binary packages are in
+    ##  C:\Users\peter.meissner\AppData\Local\Temp\RtmpigDoL1\downloaded_packages
+
+    ## Warning: package 'glue' was built under R version 3.6.3
+
     ## loaded glue
 
 ``` r
@@ -121,7 +132,9 @@ info <- packageDescription("glue", lib.loc = "./r_package_library")
 info$Packaged
 ```
 
-    ## [1] "2019-03-11 21:03:11 UTC; jhester"
+    ## [1] "2020-05-13 14:58:42 UTC; jhester"
+
+## Package Use Cases and Scope
 
 ## Package Maxims and Trade Offs
 
@@ -144,3 +157,5 @@ info$Packaged
   - behaviour should - by default - stem from function parameters only
   - to minimize re-writing function parameters over and over again all
     function parameters can be set via options
+
+## Other Packages and Frameworks

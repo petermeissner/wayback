@@ -1,5 +1,5 @@
 
-#' wb_pkg_dependencies
+#' Dependencies
 #'
 #' Function to retrieve pacakge dependencies.
 #'

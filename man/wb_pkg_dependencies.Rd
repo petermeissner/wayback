@@ -2,7 +2,7 @@
 % Please edit documentation in R/wb_pkg_dependencies.R
 \name{wb_pkg_dependencies}
 \alias{wb_pkg_dependencies}
-\title{wb_pkg_dependencies}
+\title{Dependencies}
 \usage{
 wb_pkg_dependencies(
   pkg,

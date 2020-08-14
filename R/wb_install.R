@@ -1,6 +1,6 @@
-#' wb_pkg_install
+#' Package Installation
 #'
-#' Installs packages and its dependencies
+#' Installs packages and its dependencies.
 #'
 #' @inheritParams wb_require
 #' @param repo_url url of repository to get packages from

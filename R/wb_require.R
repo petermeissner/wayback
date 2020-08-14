@@ -1,5 +1,5 @@
 
-#' wb_require
+#' Use Packages from Way-Back-Then
 #'
 #' This function will make sure a specified package is available within the
 #' current R session. If the package is not available it will attempt to
@@ -44,7 +44,10 @@
 #'
 #' \dontrun{
 #'
-#' # make sure apckage is available
+#' # set options
+#' options(wb_require_lib_path = "./r_lib_path")
+#'
+#' # make sure package is available
 #' wb_require("data.table")
 #'
 #' # use packages released up to 365 days younger than the current R-versions
@@ -59,9 +62,9 @@
 wb_require <-
   function (
     pkg,
+    library_path = getOption("wb_require_lib_path", NULL),
     date         = getOption("wb_require_date", NULL),
     date_shift   = getOption("wb_require_shift_date", NULL),
-    library_path = getOption("wb_require_lib_path", NULL),
     package_path = getOption("wb_require_package_path", NULL),
     dependencies = getOption("wb_require_dependencies", c("Depends", "Imports", "LinkingTo")),
     url_fun      = getOption("wb_require_url", wb_repo_url)
@@ -74,9 +77,23 @@ wb_require <-
     date_shift   = unlist(date_shift)
 
 
+    # check that library path is set
+    if ( is.null(library_path) ) {
+      stop(
+        "library_path is not set.
+  Set it as function parameter, e.g.: library_path = './library' or
+  via options, e.g. options(wb_require_lib_path = './library')"
+        )
+    }
+
     # check if library_path exists, if not create it.
     if ( !is.null(library_path) && !dir.exists(library_path) ) {
+
+      # create path
       dir.create(library_path)
+
+      # add .gitignore
+      writeLines(text = "*", con = paste(library_path, ".gitignore", sep="/"))
     }
 
 

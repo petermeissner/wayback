@@ -2,13 +2,13 @@
 % Please edit documentation in R/wb_require.R
 \name{wb_require}
 \alias{wb_require}
-\title{wb_require}
+\title{Use Packages from Way-Back-Then}
 \usage{
 wb_require(
   pkg,
+  library_path = getOption("wb_require_lib_path", NULL),
   date = getOption("wb_require_date", NULL),
   date_shift = getOption("wb_require_shift_date", NULL),
-  library_path = getOption("wb_require_lib_path", NULL),
   package_path = getOption("wb_require_package_path", NULL),
   dependencies = getOption("wb_require_dependencies", c("Depends", "Imports",
     "LinkingTo")),
@@ -18,12 +18,12 @@ wb_require(
 \arguments{
 \item{pkg}{\code{character} - package name specified as cha}
 
+\item{library_path}{\code{character} - lib_path to use first}
+
 \item{date}{\code{character} - date specified in ISO format, defaults to date
 specified in \code{sessionInfo()$R.version$version.string}}
 
 \item{date_shift}{\code{integer} - number of days to add to date}
-
-\item{library_path}{\code{character} - lib_path to use first}
 
 \item{package_path}{\code{character} - path to look for binary packages to install}
 
@@ -57,7 +57,10 @@ installed from.
 
 \dontrun{
 
-# make sure apckage is available
+# set options
+options(wb_require_lib_path = "./r_lib_path")
+
+# make sure package is available
 wb_require("data.table")
 
 # use packages released up to 365 days younger than the current R-versions

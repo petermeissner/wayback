@@ -2,7 +2,7 @@
 % Please edit documentation in R/wb_install.R
 \name{wb_install}
 \alias{wb_install}
-\title{wb_pkg_install}
+\title{Package Installation}
 \usage{
 wb_install(pkg, repo_url, library_path, package_path, dependencies)
 }
@@ -19,5 +19,5 @@ wb_install(pkg, repo_url, library_path, package_path, dependencies)
 should be installed also}
 }
 \description{
-Installs packages and its dependencies
+Installs packages and its dependencies.
 }
