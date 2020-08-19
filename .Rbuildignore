@@ -7,3 +7,4 @@
 ^r_package_library$
 ^lib_path$
 ^library$
+^cran-comments\.md$
