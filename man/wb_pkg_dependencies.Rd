@@ -18,5 +18,5 @@ wb_pkg_dependencies(
 \item{dep_types}{character vector of dependency types to retrieve}
 }
 \description{
-Function to retrieve pacakge dependencies.
+Function to retrieve package dependencies.
 }

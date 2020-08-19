@@ -42,7 +42,7 @@ load the package.
 Other than the normal \code{install.packages} function this function will not
 use the newest package available but one that was available at a specific
 point in time on CRAN. For CRAN snapshots the Microsoft R Open snapshots and
-the checkpoiunt package are used.
+the checkpoint package are used.
 
 The default date is the date of the release of the R version currently in use
 plus an additional 60 days.

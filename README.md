@@ -30,12 +30,12 @@ status](https://ci.appveyor.com/api/projects/status/github/petermeissner/wayback
 
 **Version**
 
-0.2.3 ( 2020-08-14 11:20:17 )
+0.2.3 ( 2020-08-19 20:27:40 )
 
 **Description**
 
 Make sure packages are available at runtime without any setup. Package
-installation, reproducability and exchanging code can be frunstrating
+installation, reproducibility and exchanging code can be frunstrating
 especially if code is used on older R versions. Often it is hard to
 puzzle out which package versions are able to work together after some
 years have passed and packages evolved further and further. The
@@ -113,16 +113,6 @@ suppressPackageStartupMessages(
   )
 )
 ```
-
-    ## install glue
-
-    ## [1] "glue"
-    ## package 'glue' successfully unpacked and MD5 sums checked
-    ## 
-    ## The downloaded binary packages are in
-    ##  C:\Users\peter.meissner\AppData\Local\Temp\RtmpigDoL1\downloaded_packages
-
-    ## Warning: package 'glue' was built under R version 3.6.3
 
     ## loaded glue
 

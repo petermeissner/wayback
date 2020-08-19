@@ -1,7 +1,7 @@
 
 #' Dependencies
 #'
-#' Function to retrieve pacakge dependencies.
+#' Function to retrieve package dependencies.
 #'
 #' @param pkg package to get dependencies from
 #' @param library_path library path to look for package
