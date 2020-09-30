@@ -31,3 +31,5 @@ LazyData: true
 RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 Imports: checkpoint
+BugReports: https://github.com/petermeissner/wayback/issues
+URL: https://github.com/petermeissner/wayback
